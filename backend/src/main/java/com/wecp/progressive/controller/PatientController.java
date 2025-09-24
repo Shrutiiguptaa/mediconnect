@@ -2,7 +2,7 @@ package com.wecp.progressive.controller;
 
 import com.wecp.progressive.entity.Patient;
 import com.wecp.progressive.service.impl.PatientServiceImplArraylist;
-
+import com.wecp.progressive.service.impl.PatientServiceImplJpa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -20,9 +20,15 @@ import java.util.List;
 @RequestMapping("/patient")
 public class PatientController {
 
+    private final PatientServiceImplJpa patientServiceImplJpa;
+
     @Autowired
     @Qualifier("patientServiceImplArraylist")
     private PatientServiceImplArraylist patientServiceImplArraylist;
+
+    PatientController(PatientServiceImplJpa patientServiceImplJpa) {
+        this.patientServiceImplJpa = patientServiceImplJpa;
+    }
 
     @GetMapping
     public ResponseEntity<List<Patient>> getAllPatients() {
@@ -42,12 +48,18 @@ public class PatientController {
         return new ResponseEntity<>(p, HttpStatus.OK);
     }
 
-    public ResponseEntity<Void> updatePatient(int patientId, Patient patient) {
-        return null;
+    public ResponseEntity<?> updatePatient(int patientId, Patient patient) throws Exception{
+        Patient p = patientServiceImplJpa.getPatientById(patientId);
+        if(p == null){
+            throw new Exception("Patient not found");
+        }
+        patientServiceImplJpa.updatePatient(patient);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    public ResponseEntity<Void> deletePatient(int patientId) {
-        return null;
+    public ResponseEntity<Void> deletePatient(int patientId) throws Exception{
+        patientServiceImplJpa.deletePatient(patientId);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     @GetMapping("/fromArrayList")

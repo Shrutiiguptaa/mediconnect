@@ -18,7 +18,9 @@ public class DoctorServiceImplJdbc implements DoctorService  {
 
     @Override
     public Integer addDoctor(Doctor doctor) throws SQLException{
+        System.out.println("Inside the doctor service-1");
         return doctorDAO.addDoctor(doctor);
+        // System.out.println("Inside the doctor service-2");
         // try {
         //     Integer id = doctorDAO.addDoctor(doctor);
         // return id;
