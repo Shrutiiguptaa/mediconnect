@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.wecp.progressive.dto.PatientDTO;
 import com.wecp.progressive.entity.Patient;
-import com.wecp.progressive.exception.PatientAlreadyExistsException;
 import com.wecp.progressive.exception.PatientNotFoundException;
 import com.wecp.progressive.repository.PatientRepository;
 import com.wecp.progressive.service.PatientService;
@@ -23,12 +22,8 @@ public class PatientServiceImplJpa implements PatientService {
         this.patientRepository = patientRepository;
     }
 
+    @Override
     public Integer addPatient(Patient patient) throws Exception {
-        // Check if patient with same email already exists
-        Patient existingPatient = patientRepository.findByEmail(patient.getEmail());
-        if (existingPatient != null) {
-            throw new PatientAlreadyExistsException("Patient with email " + patient.getEmail() + " already exists");
-        }
         Patient p = patientRepository.save(patient);
         return p.getPatientId();
     }
@@ -36,9 +31,9 @@ public class PatientServiceImplJpa implements PatientService {
     @Override
     public void deletePatient(int patientId) throws PatientNotFoundException {
         // Optional<Patient> p = patientRepository.findById(patientId);
-        if(!patientRepository.existsById(patientId)){
-            throw new PatientNotFoundException("Patient not found");
-        }
+        // if(!p.isPresent()){
+        //     throw new PatientNotFoundException();
+        // }
 
         patientRepository.deleteById(patientId);
     }
@@ -65,10 +60,6 @@ public class PatientServiceImplJpa implements PatientService {
     @Override
     public Patient getPatientById(int patientId) throws Exception {
         Patient p = patientRepository.findByPatientId(patientId);
-        if(p == null){
-            throw new PatientNotFoundException("Patient not found");
-        }
-        
         return p;
     }
 
@@ -78,7 +69,7 @@ public class PatientServiceImplJpa implements PatientService {
          
         Patient p = patientRepository.findByPatientId(patient.getPatientId());
         if(p == null){
-            throw new PatientNotFoundException("Patient not found");
+            throw new Exception();
         }
         p.setFullName(patient.getFullName());
         p.setEmail(patient.getEmail());

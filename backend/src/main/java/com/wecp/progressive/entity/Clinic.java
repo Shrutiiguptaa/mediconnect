@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -21,8 +20,8 @@ public class Clinic {
     private String contactNumber;
     private int establishedYear;
 
-    @ManyToOne
-    private Doctor doctor;
+    @OneToMany
+    private List<Doctor> doctors;
 
     public Clinic(int clinicId, String clinicName, String location, int doctorId, String contactNumber,
             int establishedYear) {
@@ -85,12 +84,12 @@ public class Clinic {
         this.establishedYear = establishedYear;
     }
 
-    public Doctor getDoctor() {
-        return doctor;
+    public List<Doctor> getDoctors() {
+        return doctors;
     }
 
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
+    public void setDoctors(List<Doctor> doctors) {
+        this.doctors = doctors;
     }
     
 }
