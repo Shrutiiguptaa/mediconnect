@@ -9,9 +9,13 @@ import org.springframework.stereotype.Service;
 
 import com.wecp.progressive.dto.PatientDTO;
 import com.wecp.progressive.entity.Patient;
+<<<<<<< HEAD
 import com.wecp.progressive.exception.PatientAlreadyExistsException;
 import com.wecp.progressive.exception.PatientNotFoundException;
 import com.wecp.progressive.repository.BillingRepository;
+=======
+import com.wecp.progressive.exception.PatientNotFoundException;
+>>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc
 import com.wecp.progressive.repository.PatientRepository;
 import com.wecp.progressive.service.PatientService;
 
@@ -24,6 +28,7 @@ public class PatientServiceImplJpa implements PatientService {
         this.patientRepository = patientRepository;
     }
 
+<<<<<<< HEAD
     @Autowired
     private BillingRepository billingRepository;
 
@@ -33,6 +38,10 @@ public class PatientServiceImplJpa implements PatientService {
         if (existingPatient != null) {
             throw new PatientAlreadyExistsException("Patient with email " + patient.getEmail() + " already exists");
         }
+=======
+    @Override
+    public Integer addPatient(Patient patient) throws Exception {
+>>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc
         Patient p = patientRepository.save(patient);
         return p.getPatientId();
     }
@@ -40,11 +49,17 @@ public class PatientServiceImplJpa implements PatientService {
     @Override
     public void deletePatient(int patientId) throws PatientNotFoundException {
         // Optional<Patient> p = patientRepository.findById(patientId);
+<<<<<<< HEAD
         if(!patientRepository.existsById(patientId)){
             throw new PatientNotFoundException("Patient not found");
         }
 
         billingRepository.deleteByPatientId(patientId);
+=======
+        // if(!p.isPresent()){
+        //     throw new PatientNotFoundException();
+        // }
+>>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc
 
         patientRepository.deleteById(patientId);
     }
@@ -71,10 +86,13 @@ public class PatientServiceImplJpa implements PatientService {
     @Override
     public Patient getPatientById(int patientId) throws Exception {
         Patient p = patientRepository.findByPatientId(patientId);
+<<<<<<< HEAD
         if(p == null){
             throw new PatientNotFoundException("Patient not found");
         }
         
+=======
+>>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc
         return p;
     }
 
@@ -84,7 +102,11 @@ public class PatientServiceImplJpa implements PatientService {
          
         Patient p = patientRepository.findByPatientId(patient.getPatientId());
         if(p == null){
+<<<<<<< HEAD
             throw new PatientNotFoundException("Patient not found");
+=======
+            throw new Exception();
+>>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc
         }
         p.setFullName(patient.getFullName());
         p.setEmail(patient.getEmail());

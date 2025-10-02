@@ -69,10 +69,13 @@ public class DoctorController {
     @DeleteMapping("/{doctorId}")
     public ResponseEntity<Void> deleteDoctor(@PathVariable int doctorId) {
         try {
+<<<<<<< HEAD
             Doctor doc = doctorService.getDoctorById(doctorId);
             if(doc == null){
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
+=======
+>>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc
             doctorService.deleteDoctor(doctorId);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } catch (Exception e) {
@@ -88,4 +91,8 @@ public class DoctorController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc

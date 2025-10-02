@@ -19,6 +19,10 @@ public interface PatientRepository extends JpaRepository<Patient, Integer> {
 
     @Query("SELECT p FROM Patient p ORDER BY p.fullName ASC")
     List<Patient> getAllPatientSortedByName();
+<<<<<<< HEAD
 
     Patient findByEmail(String email);
 }
+=======
+}
+>>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc

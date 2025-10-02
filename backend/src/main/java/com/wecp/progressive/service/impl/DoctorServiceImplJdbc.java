@@ -2,13 +2,19 @@ package com.wecp.progressive.service.impl;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Collections;
+=======
+>>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc
 import java.util.Comparator;
 import java.util.List;
 
 import com.wecp.progressive.dao.DoctorDAO;
 import com.wecp.progressive.entity.Doctor;
+<<<<<<< HEAD
 import com.wecp.progressive.entity.Patient;
+=======
+>>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc
 import com.wecp.progressive.service.DoctorService;
 
 public class DoctorServiceImplJdbc implements DoctorService  {
@@ -82,6 +88,7 @@ public class DoctorServiceImplJdbc implements DoctorService  {
 
     @Override
     public List<Doctor> getDoctorSortedByExperience() throws Exception{
+<<<<<<< HEAD
         List<Doctor> doctors = doctorDAO.getAllDoctors();
         Collections.sort(doctors, new Comparator<Doctor>(){
             @Override
@@ -91,6 +98,11 @@ public class DoctorServiceImplJdbc implements DoctorService  {
         });
         return doctors;
         // return doctorDAO.getAllDoctorsSortedByName();
+=======
+        List<Doctor> doc = doctorDAO.getAllDoctors();
+        doc.sort(Comparator.comparing(Doctor::getYearsOfExperience));
+        return doc;
+>>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc
     }
 
     @Override

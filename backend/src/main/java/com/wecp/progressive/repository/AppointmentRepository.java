@@ -1,5 +1,6 @@
 package com.wecp.progressive.repository;
 
+<<<<<<< HEAD
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -23,3 +24,8 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Intege
     // @Query("DELETE FROM Appointment a WHERE a.clinicId = :clinicId")
     // void deleteByClinicId(int clinicId);
 }
+=======
+
+public interface AppointmentRepository {
+}
+>>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc

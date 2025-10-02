@@ -1,5 +1,6 @@
 package com.wecp.progressive.entity;
 
+<<<<<<< HEAD
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -73,4 +74,8 @@ public class Billing {
     }
 
     
+=======
+public class Billing {
+
+>>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc
 }

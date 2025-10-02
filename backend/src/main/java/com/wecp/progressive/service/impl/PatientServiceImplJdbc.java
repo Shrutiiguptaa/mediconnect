@@ -1,8 +1,11 @@
 package com.wecp.progressive.service.impl;
 
 import java.sql.SQLException;
+<<<<<<< HEAD
 import java.util.Collections;
 import java.util.Comparator;
+=======
+>>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc
 import java.util.List;
 
 import com.wecp.progressive.dao.PatientDAO;
@@ -51,6 +54,7 @@ public class PatientServiceImplJdbc implements PatientService {
 
     @Override
     public List<Patient> getAllPatientSortedByName() throws Exception {
+<<<<<<< HEAD
         List<Patient> patients = patientDAO.getAllPatients(); 
         Collections.sort(patients, new Comparator<Patient>(){
             @Override
@@ -59,6 +63,9 @@ public class PatientServiceImplJdbc implements PatientService {
             }
         });
         return patients;
+=======
+        return patientDAO.getAllPatientsSortedByName();
+>>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc
     }
 
     @Override
