@@ -1,6 +1,5 @@
 package com.wecp.progressive.entity;
 
-<<<<<<< HEAD
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -86,8 +85,5 @@ public class Appointment {
     public void setPurpose(String purpose) {
         this.purpose = purpose;
     }
-=======
-public class Appointment {
->>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc
 
 }

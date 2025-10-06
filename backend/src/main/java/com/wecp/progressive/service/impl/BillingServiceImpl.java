@@ -1,6 +1,5 @@
 package com.wecp.progressive.service.impl;
 
-<<<<<<< HEAD
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +40,5 @@ public class BillingServiceImpl implements BillingService  {
     public List<Billing> getBillsByPatientId(int patientId) {
         return billingRepository.findByPatient_PatientId(patientId);
     }
-=======
-public class BillingServiceImpl  {
->>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc
 
 }

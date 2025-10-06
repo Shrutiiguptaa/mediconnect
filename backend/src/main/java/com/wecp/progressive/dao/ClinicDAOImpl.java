@@ -109,8 +109,4 @@ public class ClinicDAOImpl implements ClinicDAO {
         return c;
     }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc

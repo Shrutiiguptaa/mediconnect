@@ -10,8 +10,4 @@ public class MediConnectApplication {
         System.out.println("Welcome to MediConnect Progressive Project!");
        SpringApplication.run(MediConnectApplication.class, args);
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc

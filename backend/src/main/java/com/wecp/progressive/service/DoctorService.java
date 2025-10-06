@@ -27,8 +27,4 @@ public interface DoctorService {
     //Do not implement these methods in DoctorServiceImplArraylist.java and DoctorServiceImplJdbc.java class
     // Do not implement this method until day-13
     default public void modifyDoctorDetails(DoctorDTO doctorDTO) { }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc

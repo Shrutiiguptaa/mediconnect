@@ -91,16 +91,4 @@ public class Doctor implements Comparable<Doctor> {
         return Comparator.comparingInt(Doctor::getYearsOfExperience).compare(this, o);
     }
 
-<<<<<<< HEAD
-=======
-    // public Clinic getClinic() {
-    //     return clinic;
-    // }
-
-    // public void setClinic(Clinic clinic) {
-    //     this.clinic = clinic;
-    // }
-
-    
->>>>>>> b7e5e459680b0677906f6463d29e0cfa34b74fbc
 }
