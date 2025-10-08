@@ -41,8 +41,12 @@ public class UserLoginServiceImpl implements UserDetailsService {
 
         User user = new User();
 
+        System.out.println(userRegistrationDTO.getUsername()+"username");
         user.setUsername(userRegistrationDTO.getUsername());
+        System.out.println("Here");
+        System.out.println(userRegistrationDTO.getPassword()+"password");
         user.setPassword(passwordEncoder.encode(userRegistrationDTO.getPassword()));
+        System.out.println("Here-2");
         user.setRole(userRegistrationDTO.getRole());
 
         userRepository.save(user);

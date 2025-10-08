@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Patient implements Comparable<Patient> {
 
@@ -14,6 +16,7 @@ public class Patient implements Comparable<Patient> {
     private Integer patientId;
     
     private String fullName;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date dateOfBirth;
     private String contactNumber;
     private String email;

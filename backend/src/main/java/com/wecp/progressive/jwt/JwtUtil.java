@@ -6,7 +6,9 @@ import java.util.Map;
 import java.util.function.Function;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
 import com.wecp.progressive.repository.UserRepository;
@@ -20,13 +22,16 @@ public class JwtUtil {
 
     // @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private UserDetailsService userDetailsService;
     
 
     public JwtUtil(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    private String SECRET_KEY = "secretKey00000000000000000000000000000";
+    private String SECRET_KEY = "secretKey000000000000000000000000000000000000000000000";
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
@@ -47,7 +52,17 @@ public class JwtUtil {
     // }
 
     public String generateToken(String username) {
+
+        
+UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+    String role = userDetails.getAuthorities().stream()
+                    .findFirst()
+                    .map(GrantedAuthority::getAuthority)
+                    .orElse("USER");
+
+     
         Map<String, Object> claims = new HashMap<>();
+        claims.put("role", role);
         return createToken(claims, username);
     }
 
@@ -55,7 +70,6 @@ public class JwtUtil {
         return Jwts.builder().setClaims(claims).setSubject(subject)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24))
-                // .setExpiration(null)
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY).compact();
     }
 

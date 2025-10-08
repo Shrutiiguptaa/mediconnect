@@ -2,6 +2,8 @@ package com.wecp.progressive.dto;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class UserRegistrationDTO {
     private String username;
     private String password;
@@ -10,6 +12,7 @@ public class UserRegistrationDTO {
     private String contactNumber;
     private String email;
     private String address;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date dateOfBirth;
     private String specialty;
     private Integer yearsOfExperience;

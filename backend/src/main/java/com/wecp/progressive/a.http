@@ -1,7 +1,25 @@
-GET http://localhost:5000/patient/fromArrayList
+POST https://ec2-3-110-89-97.projects.wecreateproblems.com/proxy/5000/patient
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoicGF0aWVudCIsInN1YiI6IkJpc2hudSIsImlhdCI6MTc1OTg1NTk0OSwiZXhwIjoxNzU5OTQyMzQ5fQ.f9OUtTtHAEPgGgKByyEkHxblSaeqa_ZosLTsnvLLktM
+
+{
+    "fullName": "Bishnu raut",
+    "dateOfBirth": "23-10-2001",
+    "contactNumber": "9876543212",
+    "email": "bishnu@gmail.com",
+    "address": "puri"
+}
 
 # {
-#     "fullName": "temp",
-#     "contactNumber": "9876543211"
+#     "username": "Bishnu",
+#     "password": "b@1234"
 # }
+
+    # "role": "patient",
+    # "fullName": "Bishnu raut",
+    # "contactNumber": "9876543212",
+    # "email": "bishnu@gmail.com",
+    # "address": "puri",
+    # "dateOfBirth": "23-10-2001",
+    # "specialty": "Surgeon",
+    # "yearsOfExperience": 5
